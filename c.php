@@ -1,4 +1,5 @@
 <?php
+session_start();
 function string($input, $strength = 5) {
 	$input_length = strlen($input);
 	$random_string = '';
