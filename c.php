@@ -9,8 +9,13 @@ function string($input, $strength = 5) {
 	}
 	return $random_string;
 }
-$code = string("0123456789", 4);
-$image = imagecreatetruecolor(200, 50);
+$width=200;
+$height=50;
+$codeLength=4;
+$code = string("0123456789", $codeLength);
+$image = imagecreatetruecolor($width, $height);
+$cHeight=$height;
+$cWidth=$width / $codeLength;
 imageantialias($image, true);
 $colors=[
 	#16F292, rgb(22,242,146)
@@ -22,6 +27,8 @@ $colors=[
 	#9f1435, rgb(159,20,53)
 	imagecolorallocate($image, 159,20,53),
 ];
-imagefilledrectangle($image, 0, 0, rand(40, 190), rand(40, 60), $colors[0]);
+for($i=0;$i<$codeLength;$i++) {
+	imagefilledrectangle($image, $i * $cWidth, $i * $cHeight, $cWidth, $cHeight, $colors[$i]);
+}
 header('Content-type: image/png');
 imagepng($image);
