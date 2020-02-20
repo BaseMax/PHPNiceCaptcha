@@ -12,6 +12,7 @@ $width=200;
 $height=50;
 $codeLength=4;
 $chars="0123456789";
+$lineInPart=2;
 $code = string($chars, $codeLength);
 $image = imagecreatetruecolor($width, $height);
 $cHeight=$height;
@@ -29,14 +30,18 @@ $colors=[
 ];
 $white = imagecolorallocate($image, 255, 255, 255);
 $black = imagecolorallocate($image, 0, 0, 0);
-$font = "/var/www/html/arial.ttf";
+$font_path = "/var/www/html/arial.ttf";
 for($i=0;$i<$codeLength;$i++) {
 	$x1=$i * $cWidth;
 	$y1=0;
 	$x2=$x1 + $cWidth;
 	$y2=$cHeight;
 	imagefilledrectangle($image, $x1, $y1, $x2, $y2, $colors[$i]);
-	imagettftext($image, 25, rand(0, 80), $x1 + rand(17, 30), 37, $black, $font, $code[$i]);
+	$text = $code[$i];
+	imagettftext($image, 25, rand(0, 80), $x1 + rand(17, 30), 37, $black, $font_path, $text);
+	for($li=0;$li<$lineInPart;$li++) {
+		imageline($image, $x1+rand(-7, 10), rand(10, $height-5), $x2-rand(5,10), rand(10, $height-5), $black);
+	}
 }
 header("Content-type: image/png");
 imagepng($image);
