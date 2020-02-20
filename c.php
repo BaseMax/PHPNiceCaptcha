@@ -48,7 +48,11 @@ for($i=0;$i<$codeLength;$i++) {
 	imagettftext($image, 25, rand(0, 80), $x1 + rand(17, 30), 37, randColor(), $font_path, $text);
 	for($li=0;$li<$lineInPart;$li++) {
 		// drawLine
-		imageline($image, $x1+rand(-7, 10), rand(10, $height-5), $x2-rand(5,10), rand(10, $height-5), randColor());
+		$textColor=$colors[$i];
+		while($textColor == $colors[$i]) {
+			$textColor=randColor();
+		}
+		imageline($image, $x1+rand(-7, 10), rand(10, $height-5), $x2-rand(5,10), rand(10, $height-5), $textColor);
 	}
 	for($ci=0;$ci<$CircleInPart;$ci++) {
 		// drawCircle
