@@ -1,4 +1,6 @@
 <?php
+// Max Base
+// https://github.com/BaseMax/PHPNiceCaptcha
 session_start();
 $debug=false;
 // $debug=true; // Never not use this in public domain or place! IT'S YOUR RISK!
