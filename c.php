@@ -11,3 +11,5 @@ function string($input, $strength = 5) {
 }
 // ABCDEFGHIJKLMNOPQRSTUVWXYZ
 $captcha_string = string("0123456789", 4);
+$image = imagecreatetruecolor(200, 50);
+imageantialias($image, true);
