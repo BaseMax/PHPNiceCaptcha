@@ -17,5 +17,5 @@ PHPNiceCaptcha is a Nice Captcha with good quality and security for keeping safe
 --------
 
 **Font Name:**	Arial, and more...
-**Arial Font License:**	Free for Personal Use Only
 
+**Arial Font License:**	Free for Personal Use Only
