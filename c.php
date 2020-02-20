@@ -13,6 +13,11 @@ function string($input, $strength = 5) {
 $captcha_string = string("0123456789", 4);
 $image = imagecreatetruecolor(200, 50);
 imageantialias($image, true);
-
+//////////////////////////////////////////
+$colors=[
+	imagecolorallocate($image, 50,10,5),
+];
+imagerectangle($image, 0, 0, rand(40, 190), rand(40, 60), $colors[0]);
+//////////////////////////////////////////
 header('Content-type: image/png');
 imagepng($image);
