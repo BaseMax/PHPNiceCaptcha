@@ -28,7 +28,13 @@ $colors=[
 	imagecolorallocate($image, 159,20,53),
 ];
 for($i=0;$i<$codeLength;$i++) {
-	imagefilledrectangle($image, $i * $cWidth, $i * $cHeight, $cWidth, $cHeight, $colors[$i]);
+	// print $i * $cHeight."\n";
+	// print $i * $cWidth."\n";
+	$x1=$i * $cWidth;
+	$y1=0;
+	$x2=$x1 + $cWidth;
+	$y2=$cHeight;
+	imagefilledrectangle($image, $x1, $y1, $x2, $y2, $colors[$i]);
 }
 header('Content-type: image/png');
 imagepng($image);
