@@ -1,5 +1,7 @@
 <?php
 session_start();
+$debug=false;
+// $debug=true; // Never not use this in public domain or place! IT'S YOUR RISK!
 function string($input, $length = 5) {
 	$lengths = strlen($input);
 	$output = "";
@@ -17,6 +19,9 @@ $CircleInPart=3;
 $lineInAll=4;
 $CircleInAll=6;
 $code = string($chars, $codeLength);
+if($debug === true && isset($_GET['code'])) {
+	$code=$_GET['code'];
+}
 $image = imagecreatetruecolor($width, $height);
 $cHeight=$height;
 $cWidth=$width / $codeLength;
