@@ -9,11 +9,9 @@ function string($input, $strength = 5) {
 	}
 	return $random_string;
 }
-// ABCDEFGHIJKLMNOPQRSTUVWXYZ
-$captcha_string = string("0123456789", 4);
+$code = string("0123456789", 4);
 $image = imagecreatetruecolor(200, 50);
 imageantialias($image, true);
-//////////////////////////////////////////
 $colors=[
 	#16F292, rgb(22,242,146)
 	imagecolorallocate($image, 22,242,146),
@@ -24,7 +22,6 @@ $colors=[
 	#9f1435, rgb(159,20,53)
 	imagecolorallocate($image, 159,20,53),
 ];
-imagerectangle($image, 0, 0, rand(40, 190), rand(40, 60), $colors[0]);
-//////////////////////////////////////////
+imagefilledrectangle($image, 0, 0, rand(40, 190), rand(40, 60), $colors[0]);
 header('Content-type: image/png');
 imagepng($image);
