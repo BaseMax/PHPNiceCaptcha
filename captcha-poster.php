@@ -3,6 +3,9 @@
 // https://github.com/BaseMax/PHPNiceCaptcha
 session_start();
 $debug=false;
+$font_path = "/usr/share/nginx/html/2.ttf";
+// $font_path = "/usr/share/nginx/html/" . $_GET["font"]. ".ttf";
+// arial.ttf";
 // $debug=true; // Never not use this in public domain or place! IT'S YOUR RISK!
 function string($input, $length = 5) {
 	$lengths = strlen($input);
@@ -49,8 +52,6 @@ function randColor() {
 	global $image;
 	return imagecolorallocate($image, rand(0, 95), rand(0, 95), rand(0, 95));
 }
-$font_path = "/usr/share/nginx/html/" . $_GET["font"]. ".ttf";
-// arial.ttf";
 for($i=0;$i<$codeLength;$i++) {
 	$x1=$i * $cWidth;
 	$y1=0;
