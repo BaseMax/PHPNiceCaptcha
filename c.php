@@ -27,13 +27,16 @@ $colors=[
 	#9f1435, rgb(159,20,53)
 	imagecolorallocate($image, 159,20,53),
 ];
+$white = imagecolorallocate($image, 255, 255, 255);
+$black = imagecolorallocate($image, 0, 0, 0);
+$font = "/var/www/html/arial.ttf";
 for($i=0;$i<$codeLength;$i++) {
 	$x1=$i * $cWidth;
 	$y1=0;
 	$x2=$x1 + $cWidth;
 	$y2=$cHeight;
 	imagefilledrectangle($image, $x1, $y1, $x2, $y2, $colors[$i]);
+	imagettftext($image, 25, rand(0, 80), $x1 + rand(17, 30), 37, $black, $font, $code[$i]);
 }
-
 header("Content-type: image/png");
 imagepng($image);
